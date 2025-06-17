@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  chinese-character-game:
+    build: .
+    container_name: chinese-character-game
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    volumes:
+      - ./logs/nginx:/var/log/nginx
+    environment:
+      - NODE_ENV=production
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge 
