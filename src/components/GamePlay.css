@@ -1,0 +1,435 @@
+.game-play {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.game-header {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.level-info {
+  display: flex;
+  align-items: center;
+}
+
+.current-level {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 2px solid #667eea;
+}
+
+.score-board {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.score {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.lives {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.heart {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.heart.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.heart.inactive {
+  opacity: 0.3;
+  transform: scale(0.8);
+}
+
+.progress-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #5a6c7d;
+}
+
+.progress-percentage {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  box-shadow: 0 2px 4px rgba(39, 174, 96, 0.3);
+}
+
+.streak {
+  font-size: 1.1rem;
+  color: #27ae60;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.bonus {
+  color: #f39c12;
+  font-size: 0.9rem;
+}
+
+.menu-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.menu-button {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+  white-space: nowrap;
+}
+
+.menu-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(231, 76, 60, 0.4);
+}
+
+.menu-button:active {
+  transform: translateY(0);
+}
+
+.game-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.character-display {
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+}
+
+.character-display.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.character {
+  font-size: 8rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.meaning {
+  font-size: 1.5rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.question h2 {
+  font-size: 1.8rem;
+  color: #34495e;
+  margin-bottom: 30px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.option-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 25px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.option-button:hover:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.4);
+}
+
+.option-button:active:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.option-button.selected {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  transform: scale(1.05);
+}
+
+.option-button.correct {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  animation: pulse 0.5s ease-in-out;
+}
+
+.option-button.incorrect {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.option-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.result-message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 10px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-message.correct {
+  background: #d5f4e6;
+  color: #27ae60;
+  border: 2px solid #27ae60;
+}
+
+.result-message.incorrect {
+  background: #fadbd8;
+  color: #e74c3c;
+  border: 2px solid #e74c3c;
+}
+
+/* Combo特效样式 */
+.combo-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  animation: comboAppear 0.8s ease-out;
+}
+
+.combo-effect.special {
+  animation: comboSpecial 1.2s ease-out;
+}
+
+@keyframes comboAppear {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes comboSpecial {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3) rotate(5deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1) rotate(-5deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+}
+
+.combo-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f39c12;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #f39c12, #e67e22, #f39c12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: comboGlow 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes comboGlow {
+  from {
+    filter: drop-shadow(0 0 10px rgba(243, 156, 18, 0.5));
+  }
+  to {
+    filter: drop-shadow(0 0 20px rgba(243, 156, 18, 0.8));
+  }
+}
+
+.combo-sparkles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+}
+
+.sparkle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.5rem;
+  animation: sparkleRotate 1s ease-out;
+  transform-origin: center;
+}
+
+@keyframes sparkleRotate {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-30px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-60px) scale(0.5);
+  }
+}
+
+@media (max-width: 768px) {
+  .game-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .score-board {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .progress-section {
+    width: 100%;
+  }
+  
+  .current-level {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+  
+  .menu-button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+  
+  .character {
+    font-size: 6rem;
+  }
+  
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .option-button {
+    padding: 20px;
+    font-size: 1.3rem;
+  }
+  
+  .combo-text {
+    font-size: 2rem;
+  }
+  
+  .combo-sparkles {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .sparkle {
+    font-size: 1.2rem;
+  }
+} 
